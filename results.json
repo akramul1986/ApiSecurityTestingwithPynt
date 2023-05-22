@@ -1,0 +1,188 @@
+{
+	"SecurityRun": true,
+	"ScanId": "35dd9401-152f-4777-ab52-8a8f449c4abc",
+	"CollectionName": "",
+	"ScanTime": "0 s ",
+	"securityTests": {
+		"Duration": 0,
+		"Findings": 0,
+		"Warnings": 4,
+		"Passed": 19,
+		"DidNotRun": 1
+	},
+	"functionalTests": {
+		"Endpoints": 2,
+		"Requests": 8
+	},
+	"diagnostics": null,
+	"endpoints": [
+		{
+			"Path": "/index.php",
+			"Method": "POST",
+			"NumberOfTests": 5,
+			"NumberOfFindings": 0,
+			"NumberOfWarnings": 4
+		},
+		{
+			"Path": "/index.php",
+			"Method": "GET",
+			"NumberOfTests": 2,
+			"NumberOfFindings": 0,
+			"NumberOfWarnings": 4
+		}
+	],
+	"errors": [
+		{
+			"Label": "",
+			"ScanFindings": null
+		}
+	],
+	"warnings": [
+		{
+			"Name": "Security Header",
+			"Details": "We have seen that your application is returning responses with x-csrf-token header missing",
+			"Endpoints": [
+				"/index.php",
+				"/index.php"
+			],
+			"ActionItem": "configure your server to return the x-csrf-token header on every response."
+		},
+		{
+			"Name": "Security Header",
+			"Details": "We have seen that your application is returning responses with referrer-policy header not set properly",
+			"Endpoints": [
+				"/index.php",
+				"/index.php"
+			],
+			"ActionItem": "configure your server to return the referrer-policy header in every response with the attribute \"origin\" or \"no-referrer\"."
+		},
+		{
+			"Name": "Security Header",
+			"Details": "We have seen that your application is returning responses with cache-control header missing",
+			"Endpoints": [
+				"/index.php",
+				"/index.php"
+			],
+			"ActionItem": "configure your server to return the cache-control header in every response with one of the following attributes: \"no-cache\", \"private\" or \"no-store\"."
+		},
+		{
+			"Name": "",
+			"Details": "",
+			"Endpoints": [
+				"/index.php",
+				"/index.php"
+			],
+			"ActionItem": ""
+		}
+	],
+	"didntRun": [
+		{
+			"Title": "Business logic tests",
+			"Reason": "The functional tests included only one user, adding more users will allow Pynt to run more accurate tests",
+			"WhatWeWantedToTest": "These test cases tests for common business logic vulnerabilities:\nUser data leakage to other users - Resource-ID authorization.\nUser data leakage to other users - User-ID authorization.\nUser data manipulation by other users - Resource-ID authorization.\nUser data manipulation by other users - User-ID authorization.\nTo run these tests, Pynt needs the functional tests to include more then one logged in user.\n"
+		}
+	],
+	"passed": [
+		{
+			"TestCase": "SQLite Injection",
+			"WhatWeDid": "We tested if the system is validating inputs that are used in queries to SQLite databases and found no vulnerable SQLite databases."
+		},
+		{
+			"TestCase": "PostgreSQL Injection",
+			"WhatWeDid": "We tested if the system is validating inputs that are used in queries to PostgreSQL databases and found no vulnerable PostgreSQL databases."
+		},
+		{
+			"TestCase": "NoSQL Injection",
+			"WhatWeDid": "We tested if the system is validating inputs that are used in queries to NoSQL databases and found no vulnerable NoSQL databases."
+		},
+		{
+			"TestCase": "Command Injection",
+			"WhatWeDid": "We tested if the system is validating inputs that are used as commands executed by the system and found no command injection vulnerablity ."
+		},
+		{
+			"TestCase": "SQL Injection",
+			"WhatWeDid": "We tested if the system is validating inputs that are used in queries to SQL databases and found no vulnerable SQL databases."
+		},
+		{
+			"TestCase": "MS-SQL Injection",
+			"WhatWeDid": "We tested if the system is validating inputs that are used in queries to MS-SQL databases and found no vulnerable MS-SQL databases."
+		},
+		{
+			"TestCase": "MySQL Injection",
+			"WhatWeDid": "We tested if the system is validating inputs that are used in queries to MySQL databases and found no vulnerable MySQL databases."
+		},
+		{
+			"TestCase": "Mass assignment by manipulation of hidden attributes",
+			"WhatWeDid": "We tested if the system is blindly copying inputs into internal objects or databases."
+		},
+		{
+			"TestCase": "Mass assignment by flag overloading",
+			"WhatWeDid": "We tested if the system is blindly copying inputs into internal objects or databases."
+		},
+		{
+			"TestCase": "Local file access",
+			"WhatWeDid": "We tested if the system is validating URLs that are passed as inputs and found no vulnerable endpoints."
+		},
+		{
+			"TestCase": "Stack trace in response",
+			"WhatWeDid": "We tested if the system returns stack traces when handling exceptions."
+		},
+		{
+			"TestCase": "Guessable resource identifier",
+			"WhatWeDid": "We tested if the system is using resource idnetifiers with a guessable numeric value and did not find any enumerable identifiers."
+		},
+		{
+			"TestCase": "Resources limiting",
+			"WhatWeDid": "We tested if the system is enforcing limits on the amount of resources returned in responses."
+		},
+		{
+			"TestCase": "Server-side template injection",
+			"WhatWeDid": "We tested that the system is validating inputs that are used in generating dynamic templates and found no vulnerable templates."
+		},
+		{
+			"TestCase": "Ignored authentication token",
+			"WhatWeDid": "We tested that the system is enforcing the use of authentication tokens on authenticated endpoints."
+		},
+		{
+			"TestCase": "JWT hashed without secret",
+			"WhatWeDid": "We tested if the JWTs used by the system are using secrets in the hash signature."
+		},
+		{
+			"TestCase": "No signature in JWT",
+			"WhatWeDid": "We tested that the system is checking for a signature in JWT tokens."
+		},
+		{
+			"TestCase": "Unsigned JWT",
+			"WhatWeDid": "We tested that the system does not allow \"None\" algorithm while performing signature validation of JWT tokens."
+		},
+		{
+			"TestCase": "No signature validation in JWT",
+			"WhatWeDid": "We tested that the system is performing signature validation of JWT tokens."
+		}
+	],
+	"functionalTestsByEndpoint": [
+		{
+			"Method": "POST",
+			"Path": "/index.php",
+			"Authenticated": true,
+			"NumberOfUsers": 1,
+			"StatusCodes": [
+				"2xx"
+			],
+			"NumberOfRequests": 7,
+			"MaxDuration": "1491 ms"
+		},
+		{
+			"Method": "GET",
+			"Path": "/index.php",
+			"Authenticated": true,
+			"NumberOfUsers": 1,
+			"StatusCodes": [
+				"2xx"
+			],
+			"NumberOfRequests": 1,
+			"MaxDuration": "1241 ms"
+		}
+	],
+	"PiiSeenInFunctionalTests": null
+}
